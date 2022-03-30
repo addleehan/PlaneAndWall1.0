@@ -1,0 +1,33 @@
+"""设置屏幕"""
+screen = pg.display.set_mode( size=(0, 0),  flags=0,  depth=0,  display=0,  vsync=0 )
+1. size: 二元元组，分别代表宽度和高度
+2. flags：标志位：具体意思见下表，
+      如果不用什么特性，就指定0
+   #   0 用户设置的窗口大小
+   #   pygame.FULLSCREEN 创建一个全屏窗口
+   #   pygame.HWSURFACE  如果想创建一个硬件显示（surface会存放在显存里，从而有着更高的速度），
+       必须和FULLSCREEN同时使用：flags=pg.HWSURFACE|pg.FULLSCREEN.
+   #   pygame.OPENGL 创建一个OPENGL渲染的窗口
+   #   pygame.RESIZABLE 创建一个可以改变大小的窗口
+"""设置屏幕的标题"""
+pygame.display.set_caption("")
+"""run"""
+# 无限循环
+# 必须添加event，否则会无响应
+# 刷新屏幕：screen.fill((gba))==>....==>pygame.display.flip() or update() -> 全部刷新or只刷新改变部分
+# 其他：pygame.display.get_active() -> 获取窗口状态，显示为True，最小化为False
+
+"""提高连接GitHub网站的速度"""
+# 配置hosts文件
+路径
+C:\Windows\System32\drivers\etc中的hosts文件，添加如下内容
+
+#github
+140.82.112.4 github.com
+199.232.69.194 github.global.ssl.fastly.net
+185.199.108.153 assets-cdn.github.com
+185.199.110.153 assets-cdn.github.com
+185.199.111.153 assets-cdn.github.com
+
+刷新DNS缓存
+打开cmd窗口，执行ipconfig /flushdns命令
