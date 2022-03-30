@@ -11,6 +11,7 @@ screen = pg.display.set_mode( size=(0, 0),  flags=0,  depth=0,  display=0,  vsyn
    #   pygame.RESIZABLE 创建一个可以改变大小的窗口
 """设置屏幕的标题"""
 pygame.display.set_caption("")
+
 """run"""
 # 无限循环
 # 必须添加event，否则会无响应
