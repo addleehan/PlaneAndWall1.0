@@ -3,9 +3,14 @@ from stone import Stone, Road
 from pygame.sprite import Sprite
 
 
-class Wall(Sprite):
+class Wall:
+    """点的集合"""
+    """重新设置wall，改为建立上、中、下三组点，与road坐标对比，最下、之间、最上的点"""
+    """上、下两部分初始设定为两个屏幕以外的点，新点插入二者之间，画多边形"""
+    """中间部分，如有，新建点序列，如不再有，序列结束；随时画多边形"""
+    """过界时，消除过界的点，保留未过界的点"""
+    """"""
     def __init__(self, game):
-        super().__init__()
         self.game, self.screen, self.sets = game, game.screen, game.sets
         #
         self.wall = pygame.sprite.Group()
@@ -18,7 +23,7 @@ class Wall(Sprite):
         self.roads.add(self.road1, self.road2)
         #
         self.stone_x = self.sets.right_cl
-        self.color = self.sets.red
+        self.color = self.sets.green
 
     def update(self):
         pygame.draw.line(self.screen, self.sets.blue,
@@ -40,15 +45,15 @@ class Wall(Sprite):
                 i += 1
             # 归零
             self.stone_x = self.sets.right_cl
-            #
-            if self.color == self.sets.red:
-                self.color = self.sets.green
-            else:
-                self.color = self.sets.red
+            # #
+            # if self.color == self.sets.red:
+            #     self.color = self.sets.green
+            # else:
+            #     self.color = self.sets.red
         # collide roads and be killed
         self.road1.x = self.road2.x = self.sets.right_cl
         self.roads.update()
-        pygame.sprite.groupcollide(self.roads, self.one_wall, False, True)
+        # pygame.sprite.groupcollide(self.roads, self.one_wall, False, True)
         # other stones add to group
         # 如果石头已经移动了一个身位 ，add, 清空，准备再次生成
         self.stone_x -= self.sets.stone_speed
