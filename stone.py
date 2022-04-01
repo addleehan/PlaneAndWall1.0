@@ -38,9 +38,8 @@ class Stone(Sprite):
                          self.sets.line_width)
 
 
-class Road(Sprite):
+class Road:
     def __init__(self, game):
-        super().__init__()
         self.game, self.screen, self.sets = game, game.screen, game.sets
         #
         self.rect = pygame.Rect(0, 0, self.sets.one_width, self.sets.one_height)

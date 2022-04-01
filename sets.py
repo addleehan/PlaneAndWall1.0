@@ -59,9 +59,10 @@ class Sets:
         self.one_height = 50
         self.stone_width = 50
         self.stone_speed = 0.2
+        self.get_point_speed = 0.5
         self.direction_choice_speed = 1
         self.road_width_ucl = 5
-        self.road_width_lcl = 1
+        self.road_width_lcl = 3
 
 
     def _get_screen_rect(self):
